@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: irstrat
+  password: irstrat
+  pool: 5
+
+development:
+  <<: *default
+  database: adviser
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: adviser_test
+
+production:
+  <<: *default
+  database: adviser_production
+  username: iredge
+  password: <%= ENV['IREDGE_DATABASE_PASSWORD'] %>
