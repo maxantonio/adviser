@@ -8,6 +8,7 @@ gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -46,5 +47,16 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# -------------------------
+# ===============================GEMAS INCORPORADAS==========================================
+# Para autenticacion de usuarios
 gem 'devise'
+gem 'omniauth'
+
+# Para autenticacion con facebook
+gem 'omniauth-facebook'
+
+# Para autenticacion con linkedin
+gem 'omniauth-linkedin'
+
+# Para bootstrap
+gem 'bootstrap-sass', '~> 3.3.6'
