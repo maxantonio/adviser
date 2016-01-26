@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ejemplo2</title>
+  <title>Adviser network</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<div>
-  <p class="notice"><%= notice %></p>
+<div class="container">
+  <% if (notice) %>
+      <p class="alert alert-success"><%= notice %></p>
+  <% end %>
 
-  <p class="alert"><%= alert %></p>
+  <% if (alert) %>
+      <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+
+  <% if user_signed_in? %>
+      Signed in as <%= current_user.email %>. Not you?
+      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+      <%= link_to "Sign up", new_user_registration_path %> |
+      <%= link_to "Sign in", new_user_session_path %> |
+      <%= link_to "Sign in with Linkedin", user_omniauth_authorize_path(:linkedin) %>
+  <% end %>
+
+
   <%= yield %>
 </div>
-
 
 </body>
 </html>
