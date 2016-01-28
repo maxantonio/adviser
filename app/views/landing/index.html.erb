@@ -10,16 +10,20 @@
 </div>
 
 
-<div class='row'>  
-  
-  <div class='col-md-2'>
-    <%= image_tag current_user.profile.url_image, class: "img-thumbnail", alt: 'Avatar'%>     
+<div class='' style="width: 300px">
+
+  <div class="row">
+    <div class='col-md-2'>
+      <%= image_tag current_user.profile.url_image.nil? ? "avatar-blank.png" : current_user.profile.url_image, class: "img-thumbnail", alt: 'Avatar' %>
+    </div>
+
+    <div class='col-md-10'>
+      <p>Name: <%= current_user.profile.first_name + ' '+ current_user.profile.last_name %></p>
+
+      <p>Description: <%= current_user.profile.description %></p>
+
+      <p>Country: <%= current_user.profile.country %></p>
+    </div>
   </div>
-  
-  <div class='col-md-10'>
-    <p>Name: <%= current_user.profile.first_name + ' '+ current_user.profile.last_name %></p>
-    <p>Description: <%= current_user.profile.description %></p>
-    <p>Country: <%= current_user.profile.country %></p>
-  </div>
-  
+
 </div>
