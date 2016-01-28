@@ -11,15 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160127223413) do
+ActiveRecord::Schema.define(version: 20160128170006) do
 
-  create_table "people", force: :cascade do |t|
-    t.integer  "age"
-    t.string   "name"
-    t.date     "birthday"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "profiles", force: :cascade do |t|
+    t.string   "uid"
+    t.string   "provider"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "url_profile"
+    t.string   "url_image"
+    t.string   "country"
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -34,8 +42,6 @@ ActiveRecord::Schema.define(version: 20160127223413) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "provider"
-    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
