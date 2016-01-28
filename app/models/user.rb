@@ -1,4 +1,5 @@
-class User < ActiveRecord::Base
+class User < ActiveRecord::Base  
+  has_one :profile, :dependent => :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
@@ -44,11 +45,15 @@ class User < ActiveRecord::Base
         puts auth.info.inspect
 
         user = User.create(email: auth.info.email, password: Devise.friendly_token[0, 20])
+        
         Profile.create(
-            provider: auth.provider, uid: auth.uid, first_name: nil,
-            last_name: nil, url_image: nil, url_profile: nil,
-            country: nil, description: nil, user_id: user.id
-        )
+          provider: auth.provider, uid: auth.uid, first_name: auth.info.first_name,
+          last_name: auth.info.last_name, url_image: auth.info.image, url_profile: auth.info.urls.public_profile,
+          country: auth.info.location, description: auth.info.description, user_id: user.id
+        )      
+        puts '='*50
+        puts auth.info.image
+        put '='*50
         return user
       end
     end
