@@ -55,5 +55,8 @@ gem 'omniauth'
 # Para autenticacion con linkedin
 gem 'omniauth-linkedin'
 
+# para facebook
+gem 'omniauth-facebook'
+
 # Para bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'

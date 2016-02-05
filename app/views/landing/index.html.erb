@@ -10,20 +10,19 @@
 </div>
 
 
-<div class='' style="width: 300px">
-
-  <div class="row">
-    <div class='col-md-2'>
-      <%= image_tag current_user.profile.url_image.nil? ? "avatar-blank.png" : current_user.profile.url_image, class: "img-thumbnail", alt: 'Avatar' %>
+<div class='' style="width: 450px; outline: 1px solid grey; padding: 5px">  
+    
+  <div class='pull-left' style="width: 90px;">
+      <%= image_tag current_user.profile.url_image.nil? ? 'avatar-blank.png' : current_user.profile.url_image, class: "img-thumbnail", alt: 'Avatar' %>
     </div>
 
-    <div class='col-md-10'>
+    <div class='pull-left' style="width: 350px; padding: 5px">
       <p>Name: <%= current_user.profile.first_name + ' '+ current_user.profile.last_name %></p>
-
       <p>Description: <%= current_user.profile.description %></p>
-
       <p>Country: <%= current_user.profile.country %></p>
     </div>
-  </div>
+  
+    <div class='clearfix'></div>
+  
 
 </div>
