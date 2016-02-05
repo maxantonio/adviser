@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base  
+class User < ActiveRecord::Base
   has_one :profile, :dependent => :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -21,7 +21,6 @@ class User < ActiveRecord::Base
 
         puts 'Informacion que viene en el auth.info'
         puts auth.info.inspect
-
         user = User.create(provider: auth.provider, uid: auth.uid, email: auth.info.email, password: Devise.friendly_token[0, 20],)
       end
     end
@@ -47,21 +46,22 @@ class User < ActiveRecord::Base
         puts auth.info.inspect
 
         user = User.create(email: auth.info.email, password: Devise.friendly_token[0, 20])
-        
+
         Profile.create(
-          provider: auth.provider, uid: auth.uid, first_name: auth.info.first_name,
-          last_name: auth.info.last_name, url_image: auth.info.image, url_profile: auth.info.urls.public_profile,
-          country: auth.info.location, description: auth.info.description, user_id: user.id
-        )              
+            provider: auth.provider, uid: auth.uid, first_name: auth.info.first_name,
+            last_name: auth.info.last_name, url_image: auth.info.image, url_profile: auth.info.urls.public_profile,
+            country: auth.info.location, description: auth.info.description, user_id: user.id
+        )
         return user
       end
     end
   end
-  
-  def self.connect_to_facebook(auth,signed_in_resource=nil)
-    
+
+  def self.connect_to_facebook(auth, signed_in_resource=nil)
+
     # Preguntando si el usuario esta registrado ya con facebook
     profile = Profile.where(:provider => auth.provider, :uid => auth.uid).first
+
     if profile
       return profile.user
     else
@@ -76,13 +76,15 @@ class User < ActiveRecord::Base
         puts auth.info.inspect
 
         user = User.create(email: auth.info.email, password: Devise.friendly_token[0, 20])
-        
+
         Profile.create(
-          provider: auth.provider, uid: auth.uid, first_name: 'primer nombre',
-          last_name: 'segundo nombre', url_image: 'url_image', url_profile: 'url_profile',
-          country: 'country', description: 'Descripcion', user_id: user.id
+            provider: auth.provider, uid: auth.uid, first_name: 'primer nombre',
+            last_name: 'segundo nombre', url_image: 'url_image', url_profile: 'url_profile',
+            country: 'country', description: 'Descripcion', user_id: user.id
         )
         return user
-  end 
+      end
+    end
+  end
 
 end

@@ -267,7 +267,7 @@ Devise.setup do |config|
   require 'omniauth-linkedin'
   config.omniauth :linkedin, '77y5u60dsbw47f', 'CuHH0i24PQBtyxBH'
   
-  # Configuracion apra facebook
+  # Configuracion para facebook
   require 'omniauth-facebook'
   config.omniauth :facebook, '769224016513207', 'c1e0622d8d951c00b1422246f9082942'
 

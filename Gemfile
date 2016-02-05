@@ -55,7 +55,7 @@ gem 'omniauth'
 # Para autenticacion con linkedin
 gem 'omniauth-linkedin'
 
-# para facebook
+# Para autenticacion con facebook
 gem 'omniauth-facebook'
 
 # Para bootstrap

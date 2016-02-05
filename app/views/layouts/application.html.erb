@@ -26,6 +26,7 @@
       <%= link_to "Sign up", new_user_registration_path, class: 'btn-sm btn-success' %> |
       <%= link_to "Sing in", new_user_session_path, class: 'btn-sm btn-primary' %> |
       <%= link_to "Sin in with Linkedin", user_omniauth_authorize_path(:linkedin), class: 'btn-sm btn-primary' %>
+      <%= link_to "Sin in with Facebook", user_omniauth_authorize_path(:facebook), class: 'btn-sm btn-primary' %>
 
       <!--<%= link_to user_omniauth_authorize_path(:linkedin) do %>-->
           <!--<%= image_tag('linkedin/small-default.png', alt: 'Sign in with Linkedin') %>-->
