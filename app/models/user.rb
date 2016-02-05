@@ -84,7 +84,8 @@ class User < ActiveRecord::Base
         )
         return user
       end
-    end
+    end # fin de las condiciones
+
   end
 
 end
